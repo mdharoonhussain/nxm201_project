@@ -40,7 +40,7 @@ userRouter.post("/login", async (req, res) => {
                     let accesstoken = jwt.sign({ "userID": user._id }, 'accesstoken', { expiresIn: "7d" });
 
 
-                    res.status(201).send({ "msg": "login success", "token": accesstoken })
+                    res.status(201).send({ "msg": "login success", "token": accesstoken, "user":user })
 
                 } else {
                     res.status(401).send({ "msg": "wrong input,login failed ,User already exist, please login" })
